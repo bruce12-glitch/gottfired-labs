@@ -1,26 +1,7 @@
 import { useState, type FormEvent } from 'react';
-import { ArrowDown, ArrowUpRight, Check, Github, Mail, Menu, Pause, Play, RotateCcw, X } from 'lucide-react';
-
-function ComputeForm({ paused, resetSignal }: { paused: boolean; resetSignal: number }) {
-  return (
-    <div
-      className={`compute-form ${paused ? 'is-paused' : ''}`}
-      style={{ animationDelay: `${resetSignal * -0.35}s` }}
-      aria-label="Animated three-dimensional form representing efficient computation"
-      role="img"
-    >
-      <div className="compute-shadow" />
-      <div className="compute-orbit">
-        <span className="compute-bead" />
-      </div>
-      <div className="compute-core" />
-    </div>
-  );
-}
+import { ArrowDown, ArrowUpRight, Check, Github, Mail, Menu, X } from 'lucide-react';
 
 function App() {
-  const [paused, setPaused] = useState(false);
-  const [resetSignal, setResetSignal] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -43,9 +24,9 @@ function App() {
               <span className="h-2.5 w-2.5 rounded-full bg-[#ba6748]" />
             </span>
             <span className="font-display text-[13px] font-semibold leading-[1.05] tracking-[-.02em] text-[#292722]">
-              GOTTFRIED
+              LEIBNIZ COMPUTING LAB
               <br />
-              <span className="text-[10px] font-normal tracking-[.08em] text-[#6b645b]">COMPUTING LAB</span>
+              <span className="text-[10px] font-normal tracking-[.08em] text-[#6b645b]">× TURING LABS</span>
             </span>
           </button>
           <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
@@ -56,7 +37,7 @@ function App() {
             ))}
           </nav>
           <div className="hidden items-center sm:flex">
-            <button onClick={() => navigate('contact')} className="outline-button flex items-center border hairline px-4 py-2 text-[13px] text-[#292722]" data-testid="button-nav-connect">
+            <button onClick={() => navigate('contact')} className="button-3d outline-button flex items-center border hairline px-4 py-2 text-[13px] text-[#292722]" data-testid="button-nav-connect">
               Start a conversation
               <ArrowUpRight size={14} className="ml-2" />
             </button>
@@ -78,8 +59,8 @@ function App() {
         )}
       </header>
 
-      <section id="top" className="mx-auto grid min-h-[760px] max-w-[1240px] items-center gap-12 px-5 pb-24 pt-36 sm:px-8 lg:grid-cols-[.92fr_1.08fr] lg:gap-8 lg:px-10 lg:pt-40">
-        <div className="relative z-10 max-w-[560px]">
+      <section id="top" className="relative mx-auto flex min-h-[760px] max-w-[1240px] items-center px-5 pb-24 pt-36 sm:px-8 lg:px-10 lg:pt-40">
+        <div className="relative z-10 max-w-[760px]">
           <div className="reveal mb-8 flex items-center gap-3 text-[13px] text-[#ba6748]">
             <span className="h-px w-8 bg-[#ba6748]" />
             Independent research lab
@@ -92,44 +73,20 @@ function App() {
             in the way.
           </h1>
           <p className="reveal reveal-delay-2 mt-9 max-w-[470px] text-[17px] leading-7 text-[#625d54] sm:text-[18px]">
-            Gottfried Computing Lab builds practical systems for efficient LLM inference and machine learning.
+            Leibniz Computing Lab × Turing Labs builds practical systems for efficient LLM inference and machine learning.
           </p>
           <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-6">
-            <button onClick={() => navigate('work')} className="accent-button bg-[#ba6748] px-5 py-3 text-[13px] text-[#fffaf2]" data-testid="button-hero-work">
+            <button onClick={() => navigate('work')} className="accent-button button-3d bg-[#ba6748] px-5 py-3 text-[13px] text-[#fffaf2]" data-testid="button-hero-work">
               See the work
               <ArrowDown size={14} className="ml-3 inline" />
             </button>
-            <button onClick={() => navigate('focus')} className="nav-link text-[13px]" data-testid="button-hero-focus">
+            <button onClick={() => navigate('focus')} className="button-3d nav-link text-[13px]" data-testid="button-hero-focus">
               What we focus on
               <ArrowUpRight size={14} className="ml-2 inline" />
             </button>
           </div>
         </div>
 
-        <div className="reveal reveal-delay-2 relative mt-4 flex aspect-[1.1/1] min-h-[390px] w-full items-center justify-center overflow-hidden rounded-[2px] border hairline bg-[#eee8dc] lg:mt-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,252,244,.76),transparent_54%)]" />
-          <ComputeForm paused={paused} resetSignal={resetSignal} />
-          <div className="absolute bottom-4 right-4 flex items-center gap-2">
-            <button
-              onClick={() => setPaused(!paused)}
-              className="rounded-full p-2 text-[#71695e] transition-colors hover:bg-[#f5f1e8] hover:text-[#ba6748]"
-              aria-label={paused ? 'Resume preview animation' : 'Pause preview animation'}
-              title={paused ? 'Resume preview' : 'Pause preview'}
-              data-testid="button-toggle-animation"
-            >
-              {paused ? <Play size={14} /> : <Pause size={14} />}
-            </button>
-            <button
-              onClick={() => setResetSignal((value) => value + 1)}
-              className="rounded-full p-2 text-[#71695e] transition-colors hover:bg-[#f5f1e8] hover:text-[#ba6748]"
-              aria-label="Reset preview animation"
-              title="Reset preview"
-              data-testid="button-reset-preview"
-            >
-              <RotateCcw size={14} />
-            </button>
-          </div>
-        </div>
       </section>
 
       <div className="mx-auto max-w-[1240px] px-5 sm:px-8 lg:px-10">
@@ -188,7 +145,7 @@ function App() {
               <p className="mt-6 max-w-[550px] text-[15px] leading-6 text-[#6a645a]">
                 A field guide to memory movement in long-context inference and the architectural decisions that compound at scale.
               </p>
-              <button onClick={() => navigate('contact')} className="nav-link mt-10 text-[13px]" data-testid="button-work-note">
+               <button onClick={() => navigate('contact')} className="button-3d nav-link mt-10 text-[13px]" data-testid="button-work-note">
                 Discuss this work <ArrowUpRight size={13} className="ml-1 inline" />
               </button>
             </article>
@@ -208,7 +165,7 @@ function App() {
               ))}
             </div>
           </div>
-          <button onClick={() => window.open('https://github.com', '_blank', 'noopener,noreferrer')} className="outline-button mt-8 border hairline px-5 py-3 text-[13px] text-[#292722]" data-testid="button-github">
+          <button onClick={() => window.open('https://github.com', '_blank', 'noopener,noreferrer')} className="button-3d outline-button mt-8 border hairline px-5 py-3 text-[13px] text-[#292722]" data-testid="button-github">
             <Github size={15} className="mr-2 inline" />
             Browse open work
             <ArrowUpRight size={13} className="ml-2 inline" />
@@ -276,7 +233,7 @@ function App() {
                   The problem
                   <textarea required placeholder="What are you working on?" rows={3} className="mt-3 w-full resize-none border-b border-[#bdb3a5] bg-transparent px-0 py-3 text-[15px] leading-6 text-[#292722] outline-none placeholder:text-[#9d9488] focus:border-[#ba6748]" data-testid="input-message" />
                 </label>
-                <button type="submit" className="accent-button mt-9 bg-[#ba6748] px-5 py-3 text-[13px] text-[#fffaf2]" data-testid="button-submit-contact">
+                <button type="submit" className="accent-button button-3d mt-9 bg-[#ba6748] px-5 py-3 text-[13px] text-[#fffaf2]" data-testid="button-submit-contact">
                   Send note <ArrowUpRight size={13} className="ml-2 inline" />
                 </button>
               </>
@@ -286,7 +243,7 @@ function App() {
       </section>
 
       <footer className="mx-auto flex max-w-[1240px] flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-10">
-        <div className="text-[13px] text-[#746d63]">Gottfried Computing Lab <span className="mx-2 text-[#b7ac9c]">/</span> Useful intelligence, thoughtfully made.</div>
+        <div className="text-[13px] text-[#746d63]">Leibniz Computing Lab × Turing Labs <span className="mx-2 text-[#b7ac9c]">/</span> Useful intelligence, thoughtfully made.</div>
         <div className="flex gap-6 text-[13px] text-[#746d63]">
           <button onClick={() => navigate('top')} className="nav-link" data-testid="button-back-top">Back to top</button>
           <span>© 2025 GCL</span>
