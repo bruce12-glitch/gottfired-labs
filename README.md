@@ -1,6 +1,6 @@
 # Leibniz Computing Lab × Turing Labs
 
-A classic editorial website for research into efficient LLM inference, practical ML systems, and capable AI with less memory, latency, and waste.
+A classic editorial website for research into efficient LLM inference, practical ML systems, and capable AI with less memory, latency
 
 ## Run locally
 
