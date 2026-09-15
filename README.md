@@ -1,11 +1,12 @@
-# Gottfried Computing Lab
+# Leibniz Computing Lab × Turing Labs
 
-A research lab website focused on efficient LLM inference, practical ML systems, and making capable AI run with less memory, latency, and waste.
+A classic editorial website for research into efficient LLM inference, practical ML systems, and capable AI with less memory, latency, and waste.
 
 ## Run locally
 
-`pnpm install`
+```bash
+pnpm install
+pnpm dev
+```
 
-`pnpm dev`
-
-The site includes a live animated compute preview with Prefill, Decode, and Sparse Route modes.
+The site is a frontend-only React and Vite experience with responsive navigation, smooth section transitions, and subtle 3D button interactions.
